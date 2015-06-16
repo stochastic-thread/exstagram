@@ -34,7 +34,7 @@ Finally, run:
 * To give it a try, run `iex -S mix`
 
 ```
-{:instagram,"0.0.1",[github: "arthurcolle/elixstagram.ex"]}
+{:instagram,"0.0.2",[github: "arthurcolle/elixstagram.ex"]}
 ```
 
 See other cool Elixir repos at [awesome-elixir](https://github.com/h4cc/awesome-elixir)
