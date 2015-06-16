@@ -20,4 +20,10 @@ Feel free to contribute using pull requests.
 {:instagram,"0.0.1",[github: "arthurcolle/elixstagram.ex"]}
 ```
 
+## Example usage
+https://github.com/arthurcolle/exstagram_example
+Also check it out on Heroku:
+
+
+
 Not on hex.pm yet, but coming soon.
