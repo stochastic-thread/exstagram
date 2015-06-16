@@ -20,4 +20,4 @@ Feel free to contribute using pull requests.
 {:instagram,"0.0.1",[github: "arthurcolle/elixstagram.ex"]}
 ```
 
-Not on hex.pm yet
+Not on hex.pm yet, but coming soon.
