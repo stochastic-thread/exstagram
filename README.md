@@ -17,7 +17,7 @@ Feel free to contribute using pull requests.
 * To give it a try, run `iex -S mix`
 
 ```
-{:elixstagram,"0.1.0",[github: "arthurcolle/elixstagram.ex"]}
+{:instagram,"0.0.1",[github: "arthurcolle/elixstagram.ex"]}
 ```
 
 Not on hex.pm yet
