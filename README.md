@@ -16,16 +16,19 @@ https://exstagram-example.herokuapp.com
 Here is the code for the above Heroku app:
 https://github.com/arthurcolle/exstagram_example
 
-To run it, please run the following commands:
-* Clone repo, i.e. `git clone https://github.com/arthurcolle/exstagram_example
+To run it yourself, please run the following commands:
+* `git clone https://github.com/arthurcolle/exstagram_example`
 * `cd exstagram_example`
 * `mix deps.get`
 * `npm install` (may not be needed, but if you see any node-esque "throw err;" messages, this is why)
+
+Before you can run it yourself, you'll have to configure three environment variables:
+They are `CLIENT_ID`, `CLIENT_SECRET`, and `CALLBACK_URL` (see `exstagram/lib/instagram.ex` for usage)
+Finally, run:
 * `mix pheonix.server`
 
 
-## Contributors 
-
+## Contributors
 * Clone repo, i.e. `git clone https://github.com/arthurcolle/exstagram`
 * Run `mix deps.get`
 * To give it a try, run `iex -S mix`
