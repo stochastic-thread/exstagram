@@ -1,5 +1,5 @@
 
-# elixstagram
+# exstagram
 
 Instagram v1 API wrapper written in Elixir.
 
