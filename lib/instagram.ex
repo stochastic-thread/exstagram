@@ -7,9 +7,9 @@ defmodule Instagram do
   	HTTPoison.start
     OAuth2.new([
       strategy: __MODULE__,
-      client_id: "0ea85f47337f4b1d809d0739f71d60b3",
-      client_secret: "5bd83bf6d0d247e685811e1232095a0a",
-      redirect_uri: "https://exstagram-example.herokuapp.com/auth/callback",
+      client_id: System.get_env("CLIENT_ID"),
+      client_secret: System.get_env("CLIENT_SECRET"),
+      redirect_uri: System.get_env("CALLBACK_URL"),
       site: "https://api.instagram.com",
       authorize_url: "https://api.instagram.com/oauth/authorize/",
       token_url: "https://api.instagram.com/oauth/access_token"
