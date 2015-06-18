@@ -4,7 +4,7 @@ defmodule Instagram do
   # Public API
 
   def new do
-  	HTTPoison.start
+    HTTPoison.start
     OAuth2.new([
       strategy: __MODULE__,
       client_id: System.get_env("CLIENT_ID"),
@@ -60,7 +60,6 @@ defmodule Instagram do
   end
 
   def get_token(code_dict) do
-	  token = Instagram.get_token! code_dict
-	  token
+    Instagram.get_token! code_dict
   end
 end
