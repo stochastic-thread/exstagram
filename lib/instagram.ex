@@ -36,15 +36,15 @@ defmodule Instagram do
     client
     |> put_header("Accept", "application/json")
     |> OAuth2.Strategy.AuthCode.get_token(params, headers)
-  end
+  end 
 
   def user_recent_media(access_token) do
   	url = "https://api.instagram.com/v1/users/self/media/recent?access_token="
   	req = url <> access_token
     case HTTPoison.get(req) do
       {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
-        IO.puts "ARTHUR ZEBRA"
-        IO.puts body
+        json_body = Poison.decode! body
+        json_body["data"] |> Enum.map fn(x) -> x["images"]["thumbnail"]["url"] end
       {:ok, %HTTPoison.Response{status_code: 404}} ->
         IO.puts "Not found :("
       {:error, %HTTPoison.Error{reason: reason}} ->
