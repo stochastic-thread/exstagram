@@ -1,3 +1,2 @@
-defmodule Instagram.Config do
-	
+defmodule Instagram.Config do	
 end

@@ -38,23 +38,33 @@ defmodule Instagram do
     |> OAuth2.Strategy.AuthCode.get_token(params, headers)
   end
 
-  def user_recent_media(token) do
-  	access_token = token.access_token
+  def user_recent_media(access_token) do
   	url = "https://api.instagram.com/v1/users/self/media/recent?access_token="
   	req = url <> access_token
-  	OAuth2.AccessToken.get!(token,req)
+    case HTTPoison.get(req) do
+      {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
+        IO.puts body
+      {:ok, %HTTPoison.Response{status_code: 404}} ->
+        IO.puts "Not found :("
+      {:error, %HTTPoison.Error{reason: reason}} ->
+        IO.inspect reason
+    end
+  end
+
+  def user_recent_media2(access_token) do
+    url = "https://api.instagram.com/v1/users/self/media/recent?access_token="
+    req = url <> access_token
+    OAuth2.AccessToken.get!(token,req)
   end
   
   def start do
-	  auth_url = Instagram.authorize_url!
-	  response = HTTPoison.get! auth_url
-	  response_as_map = response.headers |> Enum.into(%{})
-	  response_as_map["Location"]
+    auth_url = Instagram.authorize_url!
+    response = HTTPoison.get! auth_url
+    response_as_map = response.headers |> Enum.into(%{})
+    response_as_map["Location"]
   end
 
   def get_token(code_dict) do
-	  # code needs to be a dict with the code that you got back from the Instagram.start url
-	  # %{:code => "1e4b06735a0240ef83174cbd690a278c"}
 	  token = Instagram.get_token! code_dict
 	  token
   end
