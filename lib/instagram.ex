@@ -43,6 +43,7 @@ defmodule Instagram do
   	req = url <> access_token
     case HTTPoison.get(req) do
       {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
+        IO.puts "ARTHUR ZEBRA"
         IO.puts body
       {:ok, %HTTPoison.Response{status_code: 404}} ->
         IO.puts "Not found :("
