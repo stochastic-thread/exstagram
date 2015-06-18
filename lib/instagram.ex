@@ -50,12 +50,6 @@ defmodule Instagram do
         IO.inspect reason
     end
   end
-
-  def user_recent_media2(access_token) do
-    url = "https://api.instagram.com/v1/users/self/media/recent?access_token="
-    req = url <> access_token
-    OAuth2.AccessToken.get!(token,req)
-  end
   
   def start do
     auth_url = Instagram.authorize_url!
