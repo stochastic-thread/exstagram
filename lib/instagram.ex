@@ -44,7 +44,8 @@ defmodule Instagram do
     case HTTPoison.get(req) do
       {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
         json_body = Poison.decode! body
-        json_body["data"] |> Enum.map fn(x) -> x["images"]["standard_resolution"]["url"] end
+        # json_body["data"] |> Enum.map fn(x) -> x["images"]["standard_resolution"]["url"] end
+        json_body["data"] |> Enum.map fn(x) -> x
       {:ok, %HTTPoison.Response{status_code: 404}} ->
         IO.puts "Not found :("
       {:error, %HTTPoison.Error{reason: reason}} ->
