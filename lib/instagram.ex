@@ -7,9 +7,9 @@ defmodule Instagram do
     HTTPoison.start
     OAuth2.new([
       strategy: __MODULE__,
-      client_id: System.get_env("CLIENT_ID"),
-      client_secret: System.get_env("CLIENT_SECRET"),
-      redirect_uri: System.get_env("CALLBACK_URL"),
+      client_id: System.get_env("INSTAGRAM_CLIENT_ID"),
+      client_secret: System.get_env("INSTAGRAM_CLIENT_SECRET"),
+      redirect_uri: System.get_env("INSTAGRAM_CALLBACK_URL"),
       site: "https://api.instagram.com",
       authorize_url: "https://api.instagram.com/oauth/authorize/",
       token_url: "https://api.instagram.com/oauth/access_token"
@@ -36,7 +36,7 @@ defmodule Instagram do
     client
     |> put_header("Accept", "application/json")
     |> OAuth2.Strategy.AuthCode.get_token(params, headers)
-  end 
+  end
 
   def user_recent_media(access_token) do
   	url = "https://api.instagram.com/v1/users/self/media/recent?access_token="
@@ -52,7 +52,7 @@ defmodule Instagram do
         IO.inspect reason
     end
   end
-  
+
   def start do
     auth_url = Instagram.authorize_url!
     response = HTTPoison.get! auth_url

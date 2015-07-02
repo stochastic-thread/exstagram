@@ -3,7 +3,7 @@
 
 Instagram v1 API wrapper written in Elixir.
 
-Please note, this is very much a work in progress. 
+Please note, this is very much a work in progress.
 Feel free to contribute using pull requests.
 
 ## Example usage
@@ -23,7 +23,7 @@ To run it yourself, please run the following commands:
 * `npm install` (may not be needed, but if you see any node-esque "throw err;" messages, this is why)
 
 Before you can run it yourself, you'll have to configure three environment variables:
-They are `CLIENT_ID`, `CLIENT_SECRET`, and `CALLBACK_URL` (see `exstagram/lib/instagram.ex` for usage)
+They are `INSTAGRAM_CLIENT_ID`, `INSTAGRAM_CLIENT_SECRET`, and `INSTAGRAM_CALLBACK_URL` (see `exstagram/lib/instagram.ex` for usage)
 Finally, run:
 * `mix pheonix.server`
 
