@@ -16,6 +16,15 @@ defmodule Instagram do
     ])
   end
 
+  @url "https://api.instagram.com/v1/"
+  def process_url(url) do
+    case String.downcase(url) do
+      <<"http://"::utf8, _::binary>> -> url
+      <<"https://"::utf8, _::binary>> -> url
+      _ -> @url <> url
+    end
+  end
+
   def authorize_url!(params \\ []) do
     new()
     |> put_param(:scope, "basic")
@@ -36,7 +45,7 @@ defmodule Instagram do
     client
     |> put_header("Accept", "application/json")
     |> OAuth2.Strategy.AuthCode.get_token(params, headers)
-  end 
+  end
 
   def user_recent_media(access_token) do
   	url = "https://api.instagram.com/v1/users/self/media/recent?access_token="
@@ -52,7 +61,7 @@ defmodule Instagram do
         IO.inspect reason
     end
   end
-  
+
   def start do
     auth_url = Instagram.authorize_url!
     response = HTTPoison.get! auth_url
