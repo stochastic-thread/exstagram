@@ -1,5 +1,6 @@
 defmodule Instagram do
   use OAuth2.Strategy
+  alias Instagram.Request
 
   # Public API
 
@@ -36,12 +37,12 @@ defmodule Instagram do
     client
     |> put_header("Accept", "application/json")
     |> OAuth2.Strategy.AuthCode.get_token(params, headers)
-  end 
+  end
 
   def user_recent_media(access_token) do
   	url = "https://api.instagram.com/v1/users/self/media/recent?access_token="
   	req = url <> access_token
-    case HTTPoison.get(req) do
+    case Request.get(req) do
       {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
         json_body = Poison.decode! body
         # json_body["data"] |> Enum.map fn(x) -> x["images"]["standard_resolution"]["url"] end
@@ -52,10 +53,10 @@ defmodule Instagram do
         IO.inspect reason
     end
   end
-  
+
   def start do
     auth_url = Instagram.authorize_url!
-    response = HTTPoison.get! auth_url
+    response = Request.get! auth_url
     response_as_map = response.headers |> Enum.into(%{})
     response_as_map["Location"]
   end
