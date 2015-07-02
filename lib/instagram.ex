@@ -16,7 +16,7 @@ defmodule Instagram do
     ])
   end
 
-  @url "https://api.instagram.com/v1/"
+  @url "https://api.instagram.com/v1"
   def process_url(url) do
     case String.downcase(url) do
       <<"http://"::utf8, _::binary>> -> url
