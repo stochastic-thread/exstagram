@@ -25,7 +25,7 @@ To run it yourself, please run the following commands:
 Before you can run it yourself, you'll have to configure three environment variables:
 They are `INSTAGRAM_CLIENT_ID`, `INSTAGRAM_CLIENT_SECRET`, and `INSTAGRAM_CALLBACK_URL` (see `exstagram/lib/instagram.ex` for usage)
 Finally, run:
-* `mix pheonix.server`
+* `mix phoenix.server`
 
 
 ## Contributors
