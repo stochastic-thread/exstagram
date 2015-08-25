@@ -1,0 +1,4 @@
+url = "https://api.instagram.com/v1/users/self/media/recent?access_token=1531139.f18ce1e.1353009936304f85921167c58a591475"
+resp = HTTPoison.get! url
+json_body = Poison.decode! resp.body
+json_body["pagination"] |> Enum.map fn(x) -> x end

@@ -3,7 +3,7 @@
 
   def project do
     [app: :instagram,
-     version: "0.0.2",
+     version: "0.0.3",
      elixir: "~> 1.1-dev",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
@@ -28,7 +28,7 @@
   # Type `mix help deps` for more examples and options
   defp deps do
     [
-      {:oauth2, "~> 0.1.0"},
+      {:oauth2, "~> 0.3.0"},
       {:httpoison, "~> 0.7"},
       {:poison, "1.4.0"}
     ]

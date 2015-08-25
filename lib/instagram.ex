@@ -54,6 +54,9 @@ defmodule Instagram do
     end
   end
 
+  def user_media_liked(access_token, params // %{}) do
+  end
+
   def start do
     auth_url = Instagram.authorize_url!
     response = Request.get! auth_url
