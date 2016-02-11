@@ -35,7 +35,7 @@ Finally, run:
 
 Put this in your `mix.exs` deps section:
 ```
-     {:instagram, "0.0.2", [github: "arthurcolle/exstagram"]}
+     {:instagram, "0.0.4", [github: "arthurcolle/exstagram"]}
 ```
 
 See other cool Elixir repos at [awesome-elixir](https://github.com/h4cc/awesome-elixir)

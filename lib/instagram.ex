@@ -53,12 +53,17 @@ defmodule Instagram do
         IO.inspect reason
     end
   end
-  
+
   def start do
-    auth_url = Instagram.authorize_url!
-    response = Request.get! auth_url
-    response_as_map = response.headers |> Enum.into(%{})
-    response_as_map["Location"]
+    response = 
+      Instagram.authorize_url!
+      |> Request.get!
+
+    map_response = 
+      response.headers 
+      |> Enum.into(%{})
+    
+    map_response["Location"]
   end
 
   def get_token(code_dict) do
