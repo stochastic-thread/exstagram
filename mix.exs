@@ -29,8 +29,8 @@
   defp deps do
     [
       {:oauth2, "~> 0.5"},
-      {:httpoison, "~> 1.8"},
-      {:poison, "~> 2.1"}
+      {:httpoison, "~> 0.8.1"},
+      {:poison, "~> 1.3"}
     ]
   end
 end
