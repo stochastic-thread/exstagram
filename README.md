@@ -41,3 +41,10 @@ Put this in your `mix.exs` deps section:
 See other cool Elixir repos at [awesome-elixir](https://github.com/h4cc/awesome-elixir)
 
 Not on hex.pm yet, but coming soon!
+
+<!-- url = "https://api.instagram.com/v1/users/self/media/recent?access_token=1531139.f18ce1e.1353009936304f85921167c58a591475"
+case HTTPoison.get(url) do
+      {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
+      	json_body = Poison.decode! body
+      	json_body["data"] |> Enum.map fn(x) -> x
+end -->
